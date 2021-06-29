@@ -1,68 +1,51 @@
 <template>
-  <div style="width: 256px">
+  <div>
     <a-menu
       mode="inline"
       theme="dark"
-      :inline-collapsed="collapsed"
-      :openKeys="openKeys"
-      :selectedKeys="selectedKeys"
+      :inline-collapsed="false"
+      v-model:selectedKeys="selectedKeys"
+      @click="handleSelect"
     >
-      <a-menu-item key="1">
+      <a-menu-item key="dashboard">
         <PieChartOutlined />
         <span>首页</span>
       </a-menu-item>
-      <a-menu-item key="2">
-        <DesktopOutlined />
-        <span>时间管理</span>
-      </a-menu-item>
+      <a-sub-menu key="software" title="软件">
+        <a-menu-item key="software">
+          <DesktopOutlined />
+          <span>软件管理</span>
+        </a-menu-item>
+        <a-menu-item key="software-use-time">
+          <DesktopOutlined />
+          <span>时间统计</span>
+        </a-menu-item>
+      </a-sub-menu>
     </a-menu>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, watch } from 'vue';
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   PieChartOutlined,
-  MailOutlined,
-  DesktopOutlined,
-  InboxOutlined,
-  AppstoreOutlined
+  DesktopOutlined
 } from '@ant-design/icons-vue';
-export default defineComponent({
-  setup() {
-    const state = reactive({
-      collapsed: false,
-      selectedKeys: ['2'],
-      openKeys: ['sub1'],
-      preOpenKeys: ['sub1']
-    });
 
-    watch(
-      () => state.openKeys,
-      (val, oldVal) => {
-        state.preOpenKeys = oldVal;
-      }
-    );
-    const toggleCollapsed = () => {
-      state.collapsed = !state.collapsed;
-      state.openKeys = state.collapsed ? [] : state.preOpenKeys;
-    };
-
+export default {
+  components: {
+    PieChartOutlined,
+    DesktopOutlined
+  },
+  data() {
     return {
-      ...toRefs(state),
-      toggleCollapsed
+      selectedKeys: ['dashboard']
     };
   },
-  components: {
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-    PieChartOutlined,
-    MailOutlined,
-    DesktopOutlined,
-    InboxOutlined,
-    AppstoreOutlined
+  methods: {
+    handleSelect({item, key}) {
+      console.log(key);
+      this.$router.push({name: key});
+    }
   }
-});
+};
 </script>
 

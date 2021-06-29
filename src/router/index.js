@@ -1,25 +1,45 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const Layout = () => import('../layout/Index');
 
+const Software = () => import('../views/software/Software');
+const SoftwareUseTime = () => import('../views/software/UseTime');
+
+const Dashboard = () => import('../views/dashboard/Dashboard');
+
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Layout
+    path: '/software',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: 'software',
+        component: Software
+      },
+      {
+        path: 'time',
+        name: 'software-use-time',
+        component: SoftwareUseTime
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        component: Dashboard
+      }
+    ]
   }
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 });
 

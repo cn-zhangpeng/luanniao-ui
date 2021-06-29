@@ -1,62 +1,34 @@
 <template>
   <a-layout>
-    <a-layout-sider>
+    <a-layout-sider :collapsed="false" :trigger="null" collapsible>
       <LeftNavMenu></LeftNavMenu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header>Header</a-layout-header>
-      <a-layout-content>Content</a-layout-content>
+      <a-layout-header style="background: #fff; padding: 0">
+        Header
+      </a-layout-header>
+      <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }" >
+        <router-view/>
+      </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 
-<script>
+<script lang="ts">
 import LeftNavMenu from './LeftNavMenu';
 
 export default {
-  name: 'Layout',
   components: {
     LeftNavMenu
+  },
+  data() {
+    return {};
+  },
+  methods: {
+
   }
 };
 </script>
-
 <style>
-#components-layout-demo-basic .code-box-demo {
-  text-align: center;
-}
-#components-layout-demo-basic .ant-layout-header,
-#components-layout-demo-basic .ant-layout-footer {
-  color: #fff;
-  background: #7dbcea;
-}
-[data-theme='dark'] #components-layout-demo-basic .ant-layout-header {
-  background: #6aa0c7;
-}
-[data-theme='dark'] #components-layout-demo-basic .ant-layout-footer {
-  background: #6aa0c7;
-}
-#components-layout-demo-basic .ant-layout-footer {
-  line-height: 1.5;
-}
-#components-layout-demo-basic .ant-layout-sider {
-  color: #fff;
-  line-height: 120px;
-  background: #3ba0e9;
-}
-[data-theme='dark'] #components-layout-demo-basic .ant-layout-sider {
-  background: #3499ec;
-}
-#components-layout-demo-basic .ant-layout-content {
-  min-height: 120px;
-  color: #fff;
-  line-height: 120px;
-  background: rgba(16, 142, 233, 1);
-}
-[data-theme='dark'] #components-layout-demo-basic .ant-layout-content {
-  background: #107bcb;
-}
-#components-layout-demo-basic > .code-box-demo > .ant-layout + .ant-layout {
-  margin-top: 48px;
-}
+
 </style>
