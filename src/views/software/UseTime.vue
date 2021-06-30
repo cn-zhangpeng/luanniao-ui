@@ -1,20 +1,19 @@
 <template>
-
+  <div>
+    Software Use Time
+  </div>
 </template>
 
 <script>
+import { defineComponent } from 'vue';
 
-export default {
-  data() {
+export default defineComponent({
+  setup() {
     return {
 
     };
-  },
-
-  methods: {
-
   }
-};
+});
 </script>
 
 <style scoped>

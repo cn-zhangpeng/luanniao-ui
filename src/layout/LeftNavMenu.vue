@@ -4,7 +4,7 @@
       mode="inline"
       theme="dark"
       :inline-collapsed="false"
-      v-model:selectedKeys="selectedKeys"
+      v-model:selectedKeys="state.selectedKeys"
       @click="handleSelect"
     >
       <a-menu-item key="dashboard">
@@ -25,27 +25,35 @@
   </div>
 </template>
 <script lang="ts">
+import { defineComponent, reactive } from 'vue';
+import router from '../router/index';
 import {
   PieChartOutlined,
   DesktopOutlined
 } from '@ant-design/icons-vue';
 
-export default {
+const state = reactive({
+  selectedKeys: ['dashboard']
+});
+
+const handleSelect = ({item, key}) => {
+  console.log(key);
+  router.push({name: key});
+};
+
+export default defineComponent({
   components: {
     PieChartOutlined,
     DesktopOutlined
   },
-  data() {
+
+  setup() {
     return {
-      selectedKeys: ['dashboard']
+      state,
+
+      handleSelect
     };
-  },
-  methods: {
-    handleSelect({item, key}) {
-      console.log(key);
-      this.$router.push({name: key});
-    }
   }
-};
+});
 </script>
 

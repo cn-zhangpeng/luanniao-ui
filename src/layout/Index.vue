@@ -15,19 +15,18 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import LeftNavMenu from './LeftNavMenu';
 
-export default {
+export default defineComponent({
   components: {
     LeftNavMenu
   },
-  data() {
-    return {};
-  },
-  methods: {
 
+  setup() {
+    return {};
   }
-};
+});
 </script>
 <style>
 

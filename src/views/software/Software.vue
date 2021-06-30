@@ -2,8 +2,8 @@
   <a-table
     class="ant-table-striped"
     size="middle"
-    :columns="columns"
-    :data-source="data"
+    :columns="state.columns"
+    :data-source="state.data"
     :pagination="false"
   >
     <template #action="{ record }">
@@ -15,43 +15,47 @@
 </template>
 
 <script>
-const columns = [
-  { title: '软件名称', dataIndex: 'name' },
-  { title: '操作', slots: { customRender: 'action' } }
-];
+import { defineComponent, reactive } from 'vue';
 
-const data = [
-  {
-    key: '1',
-    name: 'Intellij IDEA'
-  },
-  {
-    key: '2',
-    name: 'XMind'
-  },
-  {
-    key: '3',
-    name: 'Webstorm'
-  }
-];
-
-export default {
-  data() {
-    return {
-      data,
-      columns
-    };
-  },
-
-  methods: {
-    renameSoftware(id) {
-      console.log('rename: ' + id);
+const state = reactive({
+  columns: [
+    { title: '软件名称', dataIndex: 'name' },
+    { title: '操作', slots: { customRender: 'action' } }
+  ],
+  data: [
+    {
+      key: '1',
+      name: 'Intellij IDEA'
     },
-    deleteSoftware(id) {
-      console.log('delete: ' + id);
+    {
+      key: '2',
+      name: 'XMind'
+    },
+    {
+      key: '3',
+      name: 'Webstorm'
     }
-  }
+  ]
+});
+
+const renameSoftware = id => {
+  console.log('rename: ' + id);
 };
+
+const deleteSoftware = id => {
+  console.log('delete: ' + id);
+};
+
+export default defineComponent({
+  setup() {
+    return {
+      state,
+
+      renameSoftware,
+      deleteSoftware
+    };
+  }
+});
 </script>
 
 <style scoped>

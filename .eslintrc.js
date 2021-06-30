@@ -85,7 +85,7 @@ module.exports = {
     'no-unneeded-ternary': 2,
     'no-unreachable': 2,
     'no-unused-expressions': 2,
-    'no-unused-vars': [2, {'vars': 'all', 'args': 'after-used'}],
+    'no-unused-vars': 'off',
     'no-use-before-define': 2,
     'no-useless-call': 2,
     'no-void': 2,
