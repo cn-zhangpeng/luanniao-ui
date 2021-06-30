@@ -16,6 +16,7 @@
 
 <script>
 import { defineComponent, reactive } from 'vue';
+import Axios from '../../utils/http-util';
 
 const state = reactive({
   columns: [
@@ -38,6 +39,12 @@ const state = reactive({
   ]
 });
 
+const getSoftware = () => {
+  Axios.get('http://www.baidu.com', null).then(res => {
+    console.log(res);
+  });
+};
+
 const renameSoftware = id => {
   console.log('rename: ' + id);
 };
@@ -48,6 +55,8 @@ const deleteSoftware = id => {
 
 export default defineComponent({
   setup() {
+    getSoftware();
+
     return {
       state,
 
