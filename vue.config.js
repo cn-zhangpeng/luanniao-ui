@@ -36,12 +36,12 @@ module.exports = {
     'hotOnly': false,
     'historyApiFallback': true,
     'proxy': {
-      '/my-space-server':{
+      '/luanniao':{
         changeOrigin: true,
         target: 'http://127.0.0.1:8080',
-        pathRewrite: {
-          '^/api': '/luanniao'
-        }
+        // pathRewrite: {
+        //   '^/api': '/luanniao'
+        // }
       }
     }
   }
