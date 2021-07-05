@@ -14,21 +14,6 @@ import * as echarts from 'echarts';
 import Axios from '../../utils/http-util';
 import BackendUrl from '../../constants/backend-url';
 
-const getVirtualData = (year2) => {
-  let year = year2 || '2017';
-  let date = Number(echarts.number.parseDate(year + '-01-01'));
-  let end = Number(echarts.number.parseDate((Number(year) + 1) + '-01-01'));
-  let dayTime = 3600 * 24 * 1000;
-  let data = [];
-  for (let time = date; time < end; time += dayTime) {
-    data.push([
-      echarts.format.formatTime('yyyy-MM-dd', time),
-      Math.floor(Math.random() * 10000)
-    ]);
-  }
-  return data;
-};
-
 const state = reactive({
   weekUseData: {
     title: { text: '' },
