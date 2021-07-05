@@ -3,8 +3,8 @@
     <div class="total-use">
       <a-statistic title="总时间（分钟）" :value="112893" style="margin-right: 50px" />
     </div>
-    <div id="week-use" style="width:600px;"></div>
-    <div id="year-calendar" style="width:1000px;"></div>
+    <div id="week-use" style="width:600px;height:300px;"></div>
+    <div id="year-calendar" style="width:1000px;height:250px;"></div>
   </div>
 </template>
 
