@@ -14,19 +14,19 @@
   </a-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import LeftNavMenu from './LeftNavMenu';
+<script>
+import { defineComponent } from 'vue'
+import LeftNavMenu from './LeftNavMenu'
 
 export default defineComponent({
   components: {
     LeftNavMenu
   },
 
-  setup() {
-    return {};
+  setup () {
+    return {}
   }
-});
+})
 </script>
 <style>
 

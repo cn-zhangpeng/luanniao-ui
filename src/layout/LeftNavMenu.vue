@@ -24,22 +24,22 @@
     </a-menu>
   </div>
 </template>
-<script lang="ts">
-import { defineComponent, reactive } from 'vue';
-import router from '../router/index';
+<script>
+import { defineComponent, reactive } from 'vue'
+import router from '../router/index'
 import {
   PieChartOutlined,
   DesktopOutlined
-} from '@ant-design/icons-vue';
+} from '@ant-design/icons-vue'
 
 const state = reactive({
   selectedKeys: ['dashboard']
-});
+})
 
-const handleSelect = ({item, key}) => {
-  console.log(key);
-  router.push({name: key});
-};
+const handleSelect = ({ item, key }) => {
+  console.log(key)
+  router.push({ name: key })
+}
 
 export default defineComponent({
   components: {
@@ -47,13 +47,12 @@ export default defineComponent({
     DesktopOutlined
   },
 
-  setup() {
+  setup () {
     return {
       state,
 
       handleSelect
-    };
+    }
   }
-});
+})
 </script>
-
