@@ -1,12 +1,14 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import Layout from '../layout/Index'
+import DashboardIndex from '../views/dashboard/Index'
 import Dashboard from '../views/dashboard/Dashboard'
+
+import ScheduleList from '../views/schdulelist/Index'
 
 const routes = [
   {
-    path: '/',
-    component: Layout,
+    path: '/dashboard',
+    component: DashboardIndex,
     redirect: '/dashboard',
     children: [
       {
@@ -15,6 +17,11 @@ const routes = [
         component: Dashboard
       }
     ]
+  },
+  {
+    path: '/',
+    component: ScheduleList,
+    name: 'schedule-list'
   }
 ]
 

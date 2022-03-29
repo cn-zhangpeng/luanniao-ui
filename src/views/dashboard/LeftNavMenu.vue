@@ -11,25 +11,18 @@
         <PieChartOutlined />
         <span>首页</span>
       </a-menu-item>
-      <a-sub-menu key="software" title="软件">
-        <a-menu-item key="software">
-          <DesktopOutlined />
-          <span>软件管理</span>
-        </a-menu-item>
-        <a-menu-item key="software-use-time">
-          <DesktopOutlined />
-          <span>时间统计</span>
-        </a-menu-item>
-      </a-sub-menu>
+      <a-menu-item key="todolist">
+        <PieChartOutlined />
+        <span>任务清单</span>
+      </a-menu-item>
     </a-menu>
   </div>
 </template>
 <script>
 import { defineComponent, reactive } from 'vue'
-import router from '../router/index'
+import router from '../../router'
 import {
-  PieChartOutlined,
-  DesktopOutlined
+  PieChartOutlined
 } from '@ant-design/icons-vue'
 
 const state = reactive({
@@ -43,8 +36,7 @@ const handleSelect = ({ item, key }) => {
 
 export default defineComponent({
   components: {
-    PieChartOutlined,
-    DesktopOutlined
+    PieChartOutlined
   },
 
   setup () {
