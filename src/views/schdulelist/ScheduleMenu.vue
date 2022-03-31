@@ -47,12 +47,12 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .user {
   margin: 16px 0 32px;
-}
-.user .avatar {
-  border-radius: 5px;
+  .avatar {
+    border-radius: 5px;
+  }
 }
 .menu-list {
   margin-bottom: 20px;

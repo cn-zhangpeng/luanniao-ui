@@ -29,7 +29,7 @@
           <a-menu-item key="3">
             <icon>
               <template #component>
-                <svg t="1648705141694" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="5223" data-spm-anchor-id="a313x.7781069.0.i14" width="18" height="18"><path d="M781.71 854.5H242.29c-28.32 0-51.37-23.04-51.37-51.37V425.75h642.17v377.37c-0.01 28.34-23.06 51.38-51.38 51.38zM242.29 477.13v326h539.45l-0.03-326H242.29z" p-id="5224" fill="#a3a3a3"></path><path d="M833.08 477.13H190.92V316.87c0-28.33 23.05-51.37 51.37-51.37h539.42c28.32 0 51.37 23.04 51.37 51.37v160.26z m-590.79-51.38h539.42V316.87H242.29v108.88z" p-id="5225" fill="#a3a3a3"></path><path d="M327.38 393.68c-14.2 0-25.69-11.5-25.69-25.69v-172.8c0-14.19 11.49-25.69 25.69-25.69 14.2 0 25.69 11.5 25.69 25.69V368c-0.01 14.18-11.5 25.68-25.69 25.68zM696.62 393.68c-14.2 0-25.69-11.5-25.69-25.69v-172.8c0-14.19 11.49-25.69 25.69-25.69s25.69 11.5 25.69 25.69V368c0 14.18-11.49 25.68-25.69 25.68z" p-id="5226" fill="#a3a3a3"></path><path d="M488.8 769.95c-3.04 0-6.15-0.55-9.16-1.69-13.24-5.05-19.89-19.89-14.85-33.15l66.07-173.42H429.3c-14.2 0-25.69-11.5-25.69-25.69 0-14.19 11.49-25.69 25.69-25.69h138.84c8.45 0 16.36 4.15 21.15 11.11 4.79 6.96 5.87 15.83 2.86 23.72L512.8 753.4c-3.91 10.24-13.67 16.55-24 16.55z" p-id="5227" fill="#6f7175"></path></svg>
+                <svg t="1648705141694" class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" p-id="5223" data-spm-anchor-id="a313x.7781069.0.i14" width="20" height="20"><path d="M781.71 854.5H242.29c-28.32 0-51.37-23.04-51.37-51.37V425.75h642.17v377.37c-0.01 28.34-23.06 51.38-51.38 51.38zM242.29 477.13v326h539.45l-0.03-326H242.29z" p-id="5224" fill="#a3a3a3"></path><path d="M833.08 477.13H190.92V316.87c0-28.33 23.05-51.37 51.37-51.37h539.42c28.32 0 51.37 23.04 51.37 51.37v160.26z m-590.79-51.38h539.42V316.87H242.29v108.88z" p-id="5225" fill="#a3a3a3"></path><path d="M327.38 393.68c-14.2 0-25.69-11.5-25.69-25.69v-172.8c0-14.19 11.49-25.69 25.69-25.69 14.2 0 25.69 11.5 25.69 25.69V368c-0.01 14.18-11.5 25.68-25.69 25.68zM696.62 393.68c-14.2 0-25.69-11.5-25.69-25.69v-172.8c0-14.19 11.49-25.69 25.69-25.69s25.69 11.5 25.69 25.69V368c0 14.18-11.49 25.68-25.69 25.68z" p-id="5226" fill="#a3a3a3"></path><path d="M488.8 769.95c-3.04 0-6.15-0.55-9.16-1.69-13.24-5.05-19.89-19.89-14.85-33.15l66.07-173.42H429.3c-14.2 0-25.69-11.5-25.69-25.69 0-14.19 11.49-25.69 25.69-25.69h138.84c8.45 0 16.36 4.15 21.15 11.11 4.79 6.96 5.87 15.83 2.86 23.72L512.8 753.4c-3.91 10.24-13.67 16.55-24 16.55z" p-id="5227" fill="#6f7175"></path></svg>
               </template>
             </icon>
             <span>最近7天</span>
@@ -63,7 +63,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 /* menu-layout */
 .menu-layout {
   background: #F1F4FF;
@@ -73,26 +73,16 @@ export default defineComponent({
 /* list-layout */
 .list-layout {
   border-right: 1px solid #F3F3F3;
-}
-.list-layout ul.fixed-list {
-  margin: 14px 0;
-}
-.list-layout ul.fixed-list li {
-  height: 40px;
-  line-height: 40px;
-  margin: 0 8px;
-  padding: 0 12px;
-  border-radius: 6px;
-  text-align: left;
-}
-.list-layout ul.fixed-list li:active {
-  background: #ECF1FC;
-}
-.list-layout ul.fixed-list li span.icon {
-  line-height: 100px;
-}
-.list-layout ul.fixed-list li span.title {
-  margin-left: 8px;
+  .fixed-list {
+    margin-top: 8px;
+    :deep(.ant-menu-item:after) {
+      border: none !important;
+    }
+    :deep(.ant-menu-item-selected) {
+      background-color: #EDF1FB !important;
+
+    }
+  }
 }
 
 .task-layout {
